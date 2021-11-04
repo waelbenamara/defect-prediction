@@ -1,13 +1,17 @@
+from radon.complexity import average_complexity, cc_visit
+from radon.raw import analyze
+from radon.metrics import h_visit
 class Metric_Extractor(object):
-	"""docstring for Metric_Extractor"""
-	def __init__(self,filename):
-		super(Metric_Extractor, self).__init__()
-		with open(filename) as fobj:
-	            self.sourceFile = fobj.read()
-	        self.rawMetrics = self.generateRawMetrics()
-	        self.mcCabeMetrics = self.cyclomaticComplexity()
-	        self.halsteadMetrics = self.generateHalsteadMetrics()
-	def cyclomaticComplexity(self):
+    """docstring for Metric_Extractor"""
+    def __init__(self,filename):
+        super(Metric_Extractor, self).__init__()
+        with open(filename) as fobj:
+            self.sourceFile = fobj.read()
+        self.rawMetrics = self.generateRawMetrics()
+        self.mcCabeMetrics = self.cyclomaticComplexity()
+        self.halsteadMetrics = self.generateHalsteadMetrics()
+    #Cyclomatic Complexity
+    def cyclomaticComplexity(self):
         cc = cc_visit(self.sourceFile)
         return average_complexity(cc)
 
@@ -18,7 +22,7 @@ class Metric_Extractor(object):
     def generateHalsteadMetrics(self):
         hl = h_visit(self.sourceFile)
         return hl
-
+        
     def numberOfOperators(self):
         return self.halsteadMetrics.total[0]
 

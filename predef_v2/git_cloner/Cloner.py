@@ -1,10 +1,10 @@
 from git import Repo
-import uuid
+
 
 class Cloner(object):
 	def __init__(self,git_url,project_id,folder_name):
 		super(Cloner, self).__init__()
-		self.project_id = uuid.uuid1()
+		self.project_id = project_id
 		self.folder_name = folder_name
 		self.git_url = git_url
 	

@@ -1,8 +1,7 @@
 import os
 filesList = []
    
-def exploreFiles(rootPath):
-    
+def exploreFiles(rootPath): 
     for file in os.listdir(rootPath):
         if os.path.isfile((os.path.join(rootPath, file))):
             if file.endswith(".py"):
