@@ -45,7 +45,7 @@ for i in range(epochs):
 		loss.backward()
 		optimizer.step()
 		print("epoch = ",i)
- 	if i%50 == 0:
+	if i%50 == 0:
 		losses.append(loss)
 		accur.append(acc)
 		print("epoch {}\tloss : {}\t accuracy : {}".format(i,loss,acc))
