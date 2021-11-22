@@ -45,11 +45,14 @@ for i in range(epochs):
 		loss.backward()
 		optimizer.step()
 		print("epoch = ",i)
-	losses.append(loss)
-	accur.append(acc)
-	print("epoch {}\tloss : {}\t accuracy : {}".format(i,loss,acc))
+ 	if i%50 == 0:
+		losses.append(loss)
+		accur.append(acc)
+		print("epoch {}\tloss : {}\t accuracy : {}".format(i,loss,acc))
+'''
 plt.plot(losses)
 plt.title('Loss vs Epochs')
 plt.xlabel('Epochs')
 plt.ylabel('loss')
 plt.show()
+'''
