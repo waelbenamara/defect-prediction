@@ -15,10 +15,7 @@ def analyse():
 	project.explore_project()
 	project.analyze()
 	project.compute_overall_results()
-	return project.format()
-
-
-
+	return project.globalToJson()
 
 
 

@@ -58,3 +58,7 @@ class Project(object):
 	def format(self):
 		return json.dumps(self, default=lambda o: o.__dict__, 
 			sort_keys=True, indent=4)
+
+	def globalToJson(self):
+		return json.dumps(self.global_result, default=lambda o: o.__dict__, 
+			sort_keys=True, indent=4)
