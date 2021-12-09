@@ -11,7 +11,7 @@ def my_form():
 
 @app.route('/test',methods=['POST','GET'])
 def test():
-    URL = "http://172.16.6.203:3030/analyse"
+    URL = "http://10.0.0.179:3030/analyse"
     data = ''
     if request.method == 'POST':
         print("Hiiiiii")
@@ -21,8 +21,7 @@ def test():
         r = requests.get(url = URL, json = PARAMS)
         data = r.json()
         print(data)
-    return data
-
+    return render_template('resultspage.html', result= data)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)

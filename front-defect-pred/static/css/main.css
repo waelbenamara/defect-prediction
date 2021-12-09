@@ -173,7 +173,12 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 110px 130px 157px 148px;
+  padding: 70px 50px 100px 50px;
+}
+
+.row {
+padding: 10px 10px 10px 10px;
+
 }
 
 /*------------------------------------------------------------------
