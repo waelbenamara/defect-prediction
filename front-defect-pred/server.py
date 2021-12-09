@@ -11,7 +11,7 @@ def my_form():
 
 @app.route('/test',methods=['POST','GET'])
 def test():
-    URL = "http://10.0.0.179:3030/analyse"
+    URL = "http://localhost:3030/analyse"
     data = ''
     if request.method == 'POST':
         print("Hiiiiii")
