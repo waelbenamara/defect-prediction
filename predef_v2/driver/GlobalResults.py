@@ -10,3 +10,4 @@ class GlobalResult:
 		self.LinesOfComments = 0
 		self.volume = 0
 		self.effort = 0
+		self.prediction = 0

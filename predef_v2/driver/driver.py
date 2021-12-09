@@ -5,6 +5,8 @@ import uuid
 from predef_v2.driver.Result import Result
 from predef_v2.driver.GlobalResults import GlobalResult
 import json 
+import torch
+from sklearn.preprocessing import StandardScaler
 class Project(object):
 	"""docstring for Driver"""
 	def __init__(self,git_url):
@@ -38,6 +40,20 @@ class Project(object):
 			self.global_result.LinesOfComments = self.global_result.LinesOfComments + result.LinesOfComments
 			self.global_result.volume = self.global_result.volume + result.volume
 			self.global_result.effort = self.global_result.effort + result.effort
+		#model = torch.load("./predef_v2/model_trainer/model.h")
+		x = []
+		x.append(self.global_result.NumberOfOperators)
+		x.append(self.global_result.NumberOfOperands)
+		x.append(self.global_result.TotalNumberOfOperators)
+		x.append(self.global_result.TotalNumberOfOperands)
+		x.append(self.global_result.HalsteadProgramLength)
+		x.append(self.global_result.LinesOfCode)
+		x.append(self.global_result.McCabeCyclomaticComplexity)
+		x.append(self.global_result.LinesOfComments)
+		x.append(self.global_result.volume)
+		x.append(self.global_result.effort)
+		print(x)
+		self.global_result.prediction = 0
 	
 	def format(self):
 		return json.dumps(self, default=lambda o: o.__dict__, 

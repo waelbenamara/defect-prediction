@@ -8,7 +8,7 @@ from torch.utils.data import Dataset, DataLoader
 from torch import nn
 #importing the dataset
 
-df = pd.read_csv('jm1.csv')
+df = pd.read_csv('./jm1.csv')
 x = df[['uniq_Op','uniq_Opnd','total_Op','total_Opnd','l','loc','v(g)','lOComment','v','e']]
 y = df[['defects']]
 x = x.to_numpy()
@@ -16,11 +16,11 @@ y = y.to_numpy()
 print("shape of x: {}\nshape of y: {}".format(x.shape,y.shape))
 sc = StandardScaler()
 x = sc.fit_transform(x)
-
+print(x)
 trainset = dataset(x,y)
 trainloader = DataLoader(trainset,batch_size=64,shuffle=True)
 learning_rate = 0.01
-epochs = 100
+epochs = 10
 # Model , Optimizer, Loss
 model = Net(input_shape=x.shape[1])
 optimizer = torch.optim.SGD(model.parameters(),lr=learning_rate)
@@ -49,10 +49,11 @@ for i in range(epochs):
 		losses.append(loss)
 		accur.append(acc)
 		print("epoch {}\tloss : {}\t accuracy : {}".format(i,loss,acc))
-'''
+torch.save(model,"./model.h")
+
+
 plt.plot(losses)
 plt.title('Loss vs Epochs')
 plt.xlabel('Epochs')
 plt.ylabel('loss')
 plt.show()
-'''

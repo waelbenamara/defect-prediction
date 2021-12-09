@@ -11,4 +11,5 @@ class Result:
 		self.LinesOfComments = me.linesOfComments()
 		self.volume = me.volume()
 		self.effort = me.effort()
+		
         
