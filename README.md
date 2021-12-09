@@ -5,6 +5,10 @@ The front end and the back end need to run seperately, so please open two termin
 ## predef_prototype:
 This has a preliminary version of the project on which we tested the feasability of the project.
 ## predef_v2
+```
+Go to predef_v2 by typing
+```
+cd predef_v2
 This contains the project and all the necessary modules. In order to run the back end please type the following commands:
 ```
 pip3 install flask 
@@ -25,4 +29,12 @@ Finally run the server file by typing:
 ```
 python3 server.py
 ```
-##front end
+## front end
+Go to the directory by typing 
+```
+cd front-defect-pred
+```
+To run it just type:
+```
+python3 server.py
+```
