@@ -38,3 +38,15 @@ To run it just type:
 ```
 python3 server.py
 ```
+
+# Rest API
+In order to get a broad overview about the output returned by the project please use postman to send a GET requests to the following url
+```
+http://0.0.0.0:3030/analyse
+```
+with the following payload as request body
+```json
+{
+    "git_repo":"https://github.com/rubik/radon"
+}
+```
