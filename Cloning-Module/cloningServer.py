@@ -12,6 +12,7 @@ app = Flask(__name__)
 def analyse():
     data = request.get_json()
     git_url = data['git_repo']
+    uuid = data['uuid']
     destination = './'
     cloner = Cloner(git_url,str(uuid.uuid1()),destination)
     cloner.clone()
