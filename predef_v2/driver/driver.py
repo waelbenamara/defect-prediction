@@ -17,7 +17,6 @@ class Project(object):
 		self.id = str(uuid.uuid1())
 		self.path = "predef_v2/projects/"+ self.id
 		self.global_result = GlobalResult()
-	
 	def clone(self):
 		cloner = Cloner(self.git_url,self.id,"./predef_v2/projects")
 		cloner.clone()
